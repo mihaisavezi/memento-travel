@@ -10,6 +10,7 @@
         Sign In With Github
         <Icon name="tabler:brand-github" />
       </a>
+      <AppThemeToggle />
     </div>
   </div>
 </template>
