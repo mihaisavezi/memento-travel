@@ -11,11 +11,10 @@ export default defineNuxtConfig({
       standalone: false,
     },
   },
-
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+      plugins: [
+        tailwindcss(),
+      ],
 
-  },
+    },
 });
