@@ -9,9 +9,7 @@
           Easily document your travels and adventures with this intuitive travel log app. Save locations,
           upload photos, and write notes to build a vivid digital journal of your journeys.
         </p>
-        <button class="btn btn-accent">
-          Sign In With Github <Icon name="tabler:brand-github" />
-        </button>
+        <AuthButton />
       </div>
     </div>
   </div>
