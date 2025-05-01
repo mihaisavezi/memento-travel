@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "6",
-      "when": 1746080925915,
-      "tag": "0000_polite_blue_marvel",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "6",
-      "when": 1746083532774,
-      "tag": "0001_slow_grim_reaper",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "6",
-      "when": 1746083558002,
-      "tag": "0002_busy_caretaker",
+      "when": 1746091732549,
+      "tag": "0000_organic_santa_claus",
       "breakpoints": true
     }
   ]
