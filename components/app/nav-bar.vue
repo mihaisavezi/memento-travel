@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-primary text-primary-content">
+  <div class="navbar bg-slate-950 text-white">
     <div class="navbar-start">
       <NuxtLink to="/" class="btn btn-ghost text-xl">
         Memento
