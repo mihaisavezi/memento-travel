@@ -5,7 +5,7 @@ import { PCFSoftShadowMap, SRGBColorSpace } from "three";
 import HeroPlanet from "./planet.vue";
 
 const gl = {
-  clearColor: "#1d232a",
+  clearColor: "#090909",
   shadows: true,
   alpha: false,
   outputColorSpace: SRGBColorSpace,
