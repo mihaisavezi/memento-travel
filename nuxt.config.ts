@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@vee-validate/nuxt",
     "nuxt-csurf",
+    "@tresjs/nuxt",
   ],
   css: ["~/assets/css/main.css"],
   eslint: {
@@ -27,5 +28,9 @@ export default defineNuxtConfig({
   },
   colorMode: {
     dataValue: "theme",
+  },
+  tres: {
+    devtools: true,
+    glsl: true,
   },
 });
