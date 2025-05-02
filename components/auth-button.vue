@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 const authStore = useAuthStore();
-console.log("🚀 ~ authStore:", authStore);
 </script>
 
 <template>
