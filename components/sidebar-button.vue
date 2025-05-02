@@ -36,7 +36,8 @@ const route = useRoute();
 
 <style lang="css" scoped>
 .grow-enter-active {
-  animation: grow 0.1s;
+  animation: grow 0.3s;
+  animation-delay: 1s;
 }
 
 .grow-leave-active {
@@ -45,11 +46,11 @@ const route = useRoute();
 
 @keyframes grow {
   0% {
-    transform: scale(0);
+    opacity: 0;
   }
 
   100% {
-    transform: scale(1);
+    opacity: 1;
   }
 }
 </style>
