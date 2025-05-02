@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import { NuxtLink } from "#components";
-
 const authStore = useAuthStore();
+console.log("🚀 ~ authStore:", authStore);
 </script>
 
 <template>
@@ -12,12 +11,8 @@ const authStore = useAuthStore();
       class="btn m-1"
     >
       <div v-if="authStore.user.image" class="avatar">
-        <div class="w-8 rounded-xl">
-          <img
-            :src="authStore.user.image"
-            :alt="
-              authStore.user.name"
-          >
+        <div class="w-8 rounded-full">
+          <img :src="authStore.user.image" :alt="authStore.user.name">
         </div>
       </div>
       {{ authStore.user.name }}
@@ -25,7 +20,8 @@ const authStore = useAuthStore();
     <ul tabindex="0" class="dropdown-content menu bg-base-200 rounded-box z-1 w-52 p-2 shadow-sm">
       <li>
         <NuxtLink to="/sign-out">
-          <Icon name="tabler:log-out-2" size="24" />Sign Out
+          <Icon name="tabler:logout-2" size="24" />
+          Sign Out
         </NuxtLink>
       </li>
     </ul>
