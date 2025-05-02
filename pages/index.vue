@@ -3,11 +3,14 @@ const authStore = useAuthStore();
 </script>
 
 <template>
-  <div class="hero bg-base-300 container mx-auto mt-4">
-    <div class="hero-content text-center min-h-96">
+  <div class="hero container mx-auto mt-4 flex flex-col">
+    <div class="flex flex-1 min-w-xl min-h-96">
+      <HeroMain />
+    </div>
+    <div class="hero-content text-center min-h-96 flex-col justify-start">
       <div class="max-w-md">
         <h1 class="text-5xl font-bold">
-          Travel Log
+          Memento
         </h1>
         <p class="py-6">
           Easily document your travels and adventures with this intuitive travel log app. Save locations,

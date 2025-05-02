@@ -2,6 +2,7 @@
   "name": "nuxt-app",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@10.10.0+sha1.f657bc37aa5e08da2ecff3877fe3bbb4b13703ba",
   "scripts": {
     "build": "nuxt build",
     "dev": "concurrently \"pnpm run dev:db\" \"nuxt dev\"",
@@ -20,6 +21,9 @@
     "@nuxtjs/color-mode": "3.5.2",
     "@pinia/nuxt": "0.11.0",
     "@tailwindcss/vite": "^4.1.4",
+    "@tresjs/cientos": "^4.3.0",
+    "@tresjs/core": "^4.3.3",
+    "@tresjs/nuxt": "3.0.8",
     "@vee-validate/nuxt": "^4.15.0",
     "@vee-validate/zod": "^4.15.0",
     "better-auth": "^1.2.7",
@@ -31,6 +35,7 @@
     "nuxt-csurf": "1.6.5",
     "pinia": "^3.0.2",
     "tailwindcss": "^4.1.4",
+    "three": "^0.176.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.1",
     "zod": "^3.24.3"
