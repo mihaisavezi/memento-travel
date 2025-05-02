@@ -21,6 +21,7 @@ export const auth = betterAuth({
   },
   database: drizzleAdapter(db, {
     provider: "sqlite", // or "mysql", "sqlite"
+    debugLogs: true,
   }),
   advanced: {
     database: {
@@ -33,5 +34,4 @@ export const auth = betterAuth({
       clientSecret: env.AUTH_GITHUB_CLIENT_SECRET,
     },
   },
-  debugLogs: true,
 });
