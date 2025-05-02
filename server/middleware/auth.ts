@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
     headers: event.headers,
   });
 
-  event.context.user = session
+  event.context.user = session && session.user
     ? { ...session.user, id: Number.parseInt(session.user.id, 10) }
     : undefined;
 

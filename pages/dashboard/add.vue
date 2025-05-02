@@ -9,6 +9,8 @@ const { handleSubmit, errors, meta, setErrors } = useForm({
   validationSchema: toTypedSchema(InsertLocation),
 });
 
+const { $csrfFetch } = useNuxtApp();
+
 const router = useRouter();
 const submitError = ref("");
 const loading = ref(false);
@@ -22,7 +24,7 @@ const onSubmit = handleSubmit(async (values) => {
   try {
     submitError.value = "";
     loading.value = true;
-    const inserted = await $fetch("/api/locations", {
+    const inserted = await $csrfFetch("/api/locations", {
       method: "post",
       body: values,
     });
