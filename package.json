@@ -2,7 +2,6 @@
   "name": "nuxt-app",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.10.0+sha1.f657bc37aa5e08da2ecff3877fe3bbb4b13703ba",
   "scripts": {
     "build": "nuxt build",
     "dev": "concurrently \"pnpm run dev:db\" \"nuxt dev\"",
