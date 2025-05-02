@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { OrbitControls } from "@tresjs/cientos";
 import { PCFSoftShadowMap, SRGBColorSpace } from "three";
+import { shallowRef } from "vue";
 
 import HeroPlanet from "./planet.vue";
 
@@ -11,6 +12,11 @@ const gl = {
   shadowMapType: PCFSoftShadowMap,
   windowSize: false,
 };
+
+const yRotation = shallowRef(0);
+useRenderLoop().onLoop(({ delta }) => {
+  yRotation.value += 0.02 * delta;
+});
 </script>
 
 <template>
@@ -27,6 +33,14 @@ const gl = {
     <Suspense>
       <HeroPlanet />
     </Suspense>
+    <Stars
+      :rotation="[0, yRotation, 0]"
+      :radius="50"
+      :depth="100"
+      :count="600"
+      :size="0.75"
+      :size-attenuation="true"
+    />
     <TresPointLight
       color="#1BFFEF"
       :position="[0, 0, -8]"

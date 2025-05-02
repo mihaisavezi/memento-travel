@@ -3,7 +3,7 @@ const authStore = useAuthStore();
 </script>
 
 <template>
-  <div class="flex flex-1 bg-radial-[at_50%_75%] from-sky-200 via-blue-400 to-indigo-900 to-90%">
+  <div class="flex flex-1 bg-radial-[at_50%_75%] from-sky-300 via-blue-500 to-indigo-900 to-90%">
     <div class="hero container mx-auto mt-4 flex flex-col">
       <div class="flex flex-1 min-w-xl min-h-96">
         <HeroMain />
