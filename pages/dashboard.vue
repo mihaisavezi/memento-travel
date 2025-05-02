@@ -13,7 +13,10 @@ function toggleSidebar() {
 
 <template>
   <div class="flex-1 flex">
-    <div class="bg-base-100 transition-all duration:300 delay:100" :class="{ 'w-64': isSidebarOpen, 'w-16': !isSidebarOpen }">
+    <div
+      class="bg-base-100 transition-all duration:300 delay:100"
+      :class="{ 'w-64': isSidebarOpen, 'w-16': !isSidebarOpen }"
+    >
       <div
         class="flex"
         :class="{ 'justify-center': !isSidebarOpen, 'justify-end': isSidebarOpen }"
@@ -52,6 +55,8 @@ function toggleSidebar() {
         />
       </div>
     </div>
-    <div class="flex-1 bg-amber-300" />
+    <div class="flex-1">
+      <NuxtPage />
+    </div>
   </div>
 </template>
