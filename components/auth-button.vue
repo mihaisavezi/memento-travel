@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+const props = defineProps<{
+  provider: "github" | "google";
+}>();
+
 const authStore = useAuthStore();
 </script>
 
@@ -29,13 +33,13 @@ const authStore = useAuthStore();
     v-else
     :disabled="authStore.loading"
     class="btn btn-accent"
-    @click="authStore.signIn"
+    @click="authStore.signIn(props.provider)"
   >
-    Sign In With Github
+    Sign In With {{ props.provider }}
     <span v-if="authStore.loading" class="loading loading-spinner loading-md" />
     <Icon
       v-else
-      name="tabler:brand-github"
+      :name="`tabler:brand-${props.provider}`"
       size="24"
     />
   </button>
