@@ -18,14 +18,14 @@ export const session = sqliteTable("session", {
   updatedAt: integer("updated_at", { mode: "timestamp" }).notNull(),
   ipAddress: text("ip_address"),
   userAgent: text("user_agent"),
-  userId: text("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  userId: int("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
 });
 
 export const account = sqliteTable("account", {
   id: int().primaryKey({ autoIncrement: true }),
   accountId: text("account_id").notNull(),
   providerId: text("provider_id").notNull(),
-  userId: text("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  userId: int("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
   accessToken: text("access_token"),
   refreshToken: text("refresh_token"),
   idToken: text("id_token"),
