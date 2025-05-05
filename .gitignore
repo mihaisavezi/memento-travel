@@ -24,3 +24,8 @@ logs
 !.env.example
 
 local.db*
+
+# OS specific
+# Task files
+tasks.json
+tasks/ 

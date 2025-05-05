@@ -3,7 +3,7 @@ const authStore = useAuthStore();
 </script>
 
 <template>
-  <div class="flex flex-1 bg-radial-[at_50%_75%] from-sky-200 via-blue-400 to-indigo-900 to-90%">
+  <div class="flex flex-1 bg-radial-[at_50%_75%] from-sky-300 via-blue-500 to-indigo-950 to-90%">
     <div class="hero container mx-auto mt-4 flex flex-col">
       <div class="flex flex-1 min-w-xl min-h-96">
         <HeroMain />
@@ -17,7 +17,13 @@ const authStore = useAuthStore();
             Easily document your travels and adventures with this intuitive travel log app. Save locations,
             upload photos, and write notes to build a vivid digital journal of your journeys.
           </p>
-          <AuthButton v-if="!authStore.user" />
+          <NuxtLink v-if="!authStore.user">
+            <NuxtLink to="sign-in">
+              <button class="btn btn-secondary">
+                Sign In
+              </button>
+            </NuxtLink>
+          </NuxtLink>
           <NuxtLink v-else to="/dashboard">
             Go to Dashboard
           </NuxtLink>
