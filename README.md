@@ -41,3 +41,8 @@ pnpm preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+useful commands
+
+pnpm drizzle-kit generate
+pnpm drizzle-kit migrate
