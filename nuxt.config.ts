@@ -33,4 +33,5 @@ export default defineNuxtConfig({
     devtools: true,
     glsl: true,
   },
+
 });
