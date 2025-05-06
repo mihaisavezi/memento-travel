@@ -1,5 +1,14 @@
 <script setup lang="ts">
 const isSidebarOpen = ref(true);
+const route = useRoute();
+const sidebarStore = useSidebarStore();
+const locationsStore = useLocationStore();
+onMounted(() => {
+  isSidebarOpen.value = localStorage.getItem("isSidebarOpen") === "true";
+  if (route.path !== "/dashboard") {
+    locationsStore.refresh();
+  }
+});
 
 onMounted(() => {
   isSidebarOpen.value = localStorage.getItem("isSidebarOpen") === "true";
@@ -13,24 +22,21 @@ function toggleSidebar() {
 
 <template>
   <div class="flex-1 flex">
-    <div
-      class="bg-base-100 transition-all duration:300 delay:100"
-      :class="{ 'w-64': isSidebarOpen, 'w-16': !isSidebarOpen }"
-    >
+    <div class="bg-base-100 transition-all duration-300" :class="{ 'w-64': isSidebarOpen, 'w-16': !isSidebarOpen }">
       <div
-        class="flex"
+        class="flex hover:cursor-pointer hover:bg-base-200 p-2"
         :class="{ 'justify-center': !isSidebarOpen, 'justify-end': isSidebarOpen }"
         @click="toggleSidebar"
       >
         <Icon
           v-if="isSidebarOpen"
           name="tabler:chevron-left"
-          size="24"
+          size="32"
         />
         <Icon
           v-else
           name="tabler:chevron-right"
-          size="24"
+          size="32"
         />
       </div>
       <div class="flex flex-col">
@@ -46,6 +52,20 @@ function toggleSidebar() {
           icon="tabler:circle-plus-filled"
           href="/dashboard/add"
         />
+        <div v-if="sidebarStore.loading || sidebarStore.sidebarItems.length" class="divider" />
+        <div v-if="sidebarStore.loading" class="px-4">
+          <div class="skeleton h-4 w-full" />
+        </div>
+        <div v-if="!sidebarStore.loading && sidebarStore.sidebarItems.length" class="flex flex-col">
+          <SidebarButton
+            v-for="item in sidebarStore.sidebarItems"
+            :key="item.id"
+            :show-label="isSidebarOpen"
+            :label="item.label"
+            :icon="item.icon"
+            :href="item.href"
+          />
+        </div>
         <div class="divider" />
         <SidebarButton
           :show-label="isSidebarOpen"
