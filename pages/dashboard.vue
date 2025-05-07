@@ -3,6 +3,8 @@ const isSidebarOpen = ref(true);
 const route = useRoute();
 const sidebarStore = useSidebarStore();
 const locationsStore = useLocationStore();
+const mapStore = useMapStore();
+
 onMounted(() => {
   isSidebarOpen.value = localStorage.getItem("isSidebarOpen") === "true";
   if (route.path !== "/dashboard") {
@@ -67,6 +69,11 @@ function toggleSidebar() {
             :label="item.label"
             :icon="item.icon"
             :href="item.href"
+            :class="{
+              'text-secondary': item.location === mapStore.selectedPoint,
+            }"
+            @mouseenter="mapStore.selectedPoint = item.location ?? null"
+            @mouseleave="mapStore.selectedPoint = null"
           />
         </div>
         <div class="divider" />

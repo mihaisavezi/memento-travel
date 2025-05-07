@@ -5,6 +5,7 @@ const props = defineProps<{
   href: string;
   showLabel: boolean;
 }>();
+console.log("🚀 ~ props:", props);
 
 const route = useRoute();
 </script>
@@ -24,6 +25,7 @@ const route = useRoute();
         class="flex-initial mx-auto"
         :name="props.icon"
         size="24"
+        v-bind="$attrs"
       />
       <Transition name="grow">
         <div v-if="showLabel" class="flex flex-1">
