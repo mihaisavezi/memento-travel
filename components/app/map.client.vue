@@ -3,7 +3,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 
 import type { LngLatLike } from "maplibre-gl";
 
-import { MglMap, MglMarker, MglNavigationControl } from "@indoorequal/vue-maplibre-gl";
+import { MglMap, MglMarker, MglNavigationControl, MglPopup } from "@indoorequal/vue-maplibre-gl";
 
 const center = ref<LngLatLike>([45, 47.21322]);
 
@@ -51,14 +51,33 @@ onMounted(() => {
       :coordinates="[point.long, point.lat]"
     >
       <template #marker>
-        <div class="tooltip tooltip-top" :data-tip="point.label">
+        <div
+          class="tooltip tooltip-top"
+          :class="{ 'tooltip-open': mapStore.selectedPoint === point }"
+          :data-tip="point.name"
+          @mouseenter="mapStore.selectPointWithoutAnimation(point)"
+          @mouseleave="mapStore.selectPointWithoutAnimation(point)"
+        >
           <Icon
             name="tabler:map-pin-filled"
             size="30"
-            class="text-secondary"
+            :class="mapStore.selectedPoint === point ? 'text-secondary' : 'text-content'"
           />
         </div>
       </template>
+      <MglPopup :close-button="false">
+        <div
+          class="p-6"
+          :class="{ 'text-base-300 bg-white': colorMode.value === 'light', 'bg-base-300': colorMode.value === 'dark' }"
+        >
+          <h3 class="text-2xl">
+            {{ point.name }}
+          </h3>
+          <p v-if="point.description">
+            {{ point.description }}
+          </p>
+        </div>
+      </MglPopup>
     </MglMarker>
   </Mglmap>
 </template>
