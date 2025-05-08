@@ -25,7 +25,7 @@ const isDark = computed({
 
     <!-- moon icon -->
     <Icon
-      class="swap-off"
+      class="swap-off text-base-content"
       name="tabler:moon-filled"
       size="24"
     />
