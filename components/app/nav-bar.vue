@@ -1,8 +1,10 @@
 <script lang="ts" setup>
 const authStore = useAuthStore();
 const colorMode = useColorMode();
-const isDark = computed(() =>
-  colorMode.value === "dark");
+
+const isDark = computed(() => {
+  return colorMode.value === "dark";
+});
 </script>
 
 <template>

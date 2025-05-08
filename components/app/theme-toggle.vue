@@ -9,6 +9,7 @@ const isDark = computed({
     colorMode.preference = value ? "dark" : "light";
   },
 });
+console.log("🚀 ~ isDark:", isDark.value);
 </script>
 
 <template>
