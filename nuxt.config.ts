@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     "@vee-validate/nuxt",
     "nuxt-csurf",
     "@tresjs/nuxt",
+    "@nuxt/content",
   ],
   css: ["~/assets/css/main.css"],
   eslint: {
@@ -33,5 +34,8 @@ export default defineNuxtConfig({
     devtools: true,
     glsl: true,
   },
-
+  debug: true,
+  routeRules: {
+    "/cv": { prerender: true },
+  },
 });
