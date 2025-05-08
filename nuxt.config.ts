@@ -35,7 +35,9 @@ export default defineNuxtConfig({
     glsl: true,
   },
   debug: true,
-  routeRules: {
-    "/cv": { prerender: true },
+  content: {
+    preview: {
+      api: "https://api.nuxt.studio",
+    },
   },
 });
