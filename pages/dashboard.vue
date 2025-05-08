@@ -86,7 +86,7 @@ function toggleSidebar() {
       </div>
     </div>
     <div class="flex-1 overflow-auto">
-      <div class="flex flex-col size-full">
+      <div class="flex size-full" :class="route.path === '/dashboard' ? 'flex-col' : undefined">
         <NuxtPage />
         <AppMap class="flex-1" />
       </div>

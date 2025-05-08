@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 import "maplibre-gl/dist/maplibre-gl.css";
 
-import type { LngLatLike } from "maplibre-gl";
+import type { LngLat, LngLatLike } from "maplibre-gl";
 
 import { MglMap, MglMarker, MglNavigationControl, MglPopup } from "@indoorequal/vue-maplibre-gl";
 
-const center = ref<LngLatLike>([45, 47.21322]);
+import { DEFAULT_COORDS } from "~/lib/constants";
+
+const center = ref<LngLatLike>(DEFAULT_COORDS);
 
 const colorMode = useColorMode();
 const mapStore = useMapStore();
@@ -14,6 +16,14 @@ const style = computed(() =>
     ? "/styles/dark.json"
     : "https://tiles.openfreemap.org/styles/liberty");
 const zoom = ref(3);
+
+function updateAddedPoint(location: LngLat) {
+  console.log("🚀 ~ updateAddedPoint ~ location:", location);
+  if (mapStore.toBeAddedPoint) {
+    mapStore.toBeAddedPoint.lat = location.lat;
+    mapStore.toBeAddedPoint.long = location.lng;
+  }
+}
 
 onMounted(() => {
   mapStore.init();
@@ -45,6 +55,23 @@ onMounted(() => {
     :zoom="zoom"
   >
     <MglNavigationControl />
+    <MglMarker
+      v-if="mapStore.toBeAddedPoint"
+      draggable
+      :coordinates="center"
+      class="text-warning"
+      @update:coordinates="updateAddedPoint"
+    >
+      <template #marker>
+        <div class="tooltip tooltip-top" data-tip="Drag to your desired location">
+          <Icon
+            name="tabler:map-pin-filled"
+            size="30"
+            class="text-primary"
+          />
+        </div>
+      </template>
+    </MglMarker>
     <MglMarker
       v-for="point in mapStore.mapPoints"
       :key="point.id"

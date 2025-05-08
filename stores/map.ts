@@ -13,6 +13,7 @@ export type SidebarItem = {
 export const useMapStore = defineStore("useMapStore", () => {
   const mapPoints = ref<MapPoint[]>([]);
   const selectedPoint = ref<MapPoint | null>(null);
+  const toBeAddedPoint = ref<MapPoint | null>(null);
   const shouldFlyTo = ref(true);
 
   async function init() {
@@ -40,6 +41,8 @@ export const useMapStore = defineStore("useMapStore", () => {
     });
 
     effect(() => {
+      if (toBeAddedPoint.value)
+        return;
       if (selectedPoint.value) {
         if (shouldFlyTo.value) {
           map?.map?.flyTo({
@@ -57,6 +60,16 @@ export const useMapStore = defineStore("useMapStore", () => {
         });
       }
     });
+
+    watch(toBeAddedPoint, (newValue, oldValue) => {
+      if (newValue && !oldValue) {
+        map?.map?.flyTo({
+          center: [newValue.long, newValue.lat],
+          zoom: 5,
+          speed: 0.8,
+        });
+      }
+    }, { immediate: true });
   }
 
   function selectPointWithoutAnimation(point: MapPoint) {
@@ -69,5 +82,6 @@ export const useMapStore = defineStore("useMapStore", () => {
     init,
     selectedPoint,
     selectPointWithoutAnimation,
+    toBeAddedPoint,
   };
 });
