@@ -18,7 +18,6 @@ const style = computed(() =>
 const zoom = ref(3);
 
 function updateAddedPoint(location: LngLat) {
-  console.log("🚀 ~ updateAddedPoint ~ location:", location);
   if (mapStore.toBeAddedPoint) {
     mapStore.toBeAddedPoint.lat = location.lat;
     mapStore.toBeAddedPoint.long = location.lng;

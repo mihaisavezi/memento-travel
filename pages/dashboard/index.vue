@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 const locationsStore = useLocationStore();
 const mapStore = useMapStore();
-console.log("🚀 ~ mapStore:", mapStore);
 
 const { locations, status } = storeToRefs(locationsStore);
 

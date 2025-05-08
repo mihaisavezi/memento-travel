@@ -26,19 +26,14 @@ const submitError = ref("");
 const loading = ref(false);
 const submitted = ref(false);
 
-effect(() => {
-  console.log(toRaw(errors.value));
-});
-
 const onSubmit = handleSubmit(async (values, actions) => {
   try {
     submitError.value = "";
     loading.value = true;
-    const inserted = await $csrfFetch("/api/locations", {
+    await $csrfFetch("/api/locations", {
       method: "post",
       body: values,
     });
-    console.log(inserted);
     submitted.value = true;
     // reset the form
     actions.resetForm();
@@ -56,7 +51,6 @@ const onSubmit = handleSubmit(async (values, actions) => {
 
 effect(() => {
   if (mapStore.toBeAddedPoint) {
-    console.log("🚀 ~ effect ~ mapStore.toBeAddedPoint:", mapStore.toBeAddedPoint);
     setFieldValue("long", mapStore.toBeAddedPoint.long);
     setFieldValue("lat", mapStore.toBeAddedPoint.lat);
   }
