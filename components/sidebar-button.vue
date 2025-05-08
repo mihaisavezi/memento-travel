@@ -5,7 +5,6 @@ const props = defineProps<{
   href: string;
   showLabel: boolean;
 }>();
-console.log("🚀 ~ props:", props);
 
 const route = useRoute();
 </script>
