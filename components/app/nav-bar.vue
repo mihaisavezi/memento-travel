@@ -10,7 +10,7 @@ const isDark = computed(() => {
 <template>
   <ColorScheme>
     <div
-      class="navbar"
+      class="navbar sticky top-0"
       :class="{
         'bg-indigo-950/60': isDark,
         'bg-sky-200/50': !isDark,

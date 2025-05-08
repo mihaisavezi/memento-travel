@@ -5,7 +5,7 @@ await authStore.init(); // uses suspense - prevents everything to render until i
 </script>
 
 <template>
-  <div class="flex min-h-screen flex-col">
+  <div class="flex min-h-screen flex-col relative">
     <AppNavBar />
     <main class="flex-1 flex flex-col bg-">
       <slot />

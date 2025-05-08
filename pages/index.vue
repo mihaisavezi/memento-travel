@@ -22,7 +22,7 @@ const authStore = useAuthStore();
           </p>
           <NuxtLink v-if="!authStore.user">
             <NuxtLink to="sign-in">
-              <button class="btn btn-secondary">
+              <button class="btn btn-primary">
                 Sign In
               </button>
             </NuxtLink>

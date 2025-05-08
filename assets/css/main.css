@@ -105,8 +105,3 @@ html[data-theme="dark"] {
     @apply border-l-base-300;
   }
 }
-
-html,
-body {
-  overflow: hidden;
-}
