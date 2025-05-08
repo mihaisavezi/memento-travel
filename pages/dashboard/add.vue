@@ -3,10 +3,20 @@ import type { FetchError } from "ofetch";
 
 import { toTypedSchema } from "@vee-validate/zod";
 
+import { DEFAULT_COORDS } from "~/lib/constants";
 import { InsertLocation } from "~/lib/db/schema";
 
-const { handleSubmit, errors, meta, setErrors } = useForm({
+import { formatNumber } from "./add.const";
+
+const mapStore = useMapStore();
+const { handleSubmit, errors, meta, setErrors, setFieldValue, controlledValues } = useForm({
   validationSchema: toTypedSchema(InsertLocation),
+  initialValues: {
+    name: "",
+    description: "",
+    long: (DEFAULT_COORDS as [number, number])[0],
+    lat: (DEFAULT_COORDS as [number, number])[1],
+  },
 });
 
 const { $csrfFetch } = useNuxtApp();
@@ -20,7 +30,7 @@ effect(() => {
   console.log(toRaw(errors.value));
 });
 
-const onSubmit = handleSubmit(async (values) => {
+const onSubmit = handleSubmit(async (values, actions) => {
   try {
     submitError.value = "";
     loading.value = true;
@@ -30,6 +40,8 @@ const onSubmit = handleSubmit(async (values) => {
     });
     console.log(inserted);
     submitted.value = true;
+    // reset the form
+    actions.resetForm();
 
     navigateTo("/dashboard");
   }
@@ -42,6 +54,24 @@ const onSubmit = handleSubmit(async (values) => {
   loading.value = false;
 });
 
+effect(() => {
+  if (mapStore.toBeAddedPoint) {
+    console.log("🚀 ~ effect ~ mapStore.toBeAddedPoint:", mapStore.toBeAddedPoint);
+    setFieldValue("long", mapStore.toBeAddedPoint.long);
+    setFieldValue("lat", mapStore.toBeAddedPoint.lat);
+  }
+});
+
+onMounted(() => {
+  mapStore.toBeAddedPoint = {
+    id: 1,
+    name: "Added point",
+    description: "",
+    long: (DEFAULT_COORDS as [number, number])[0],
+    lat: (DEFAULT_COORDS as [number, number])[1],
+  };
+});
+
 onBeforeRouteLeave(() => {
   if (!submitted.value && meta.value.dirty) {
     // eslint-disable-next-line no-alert
@@ -51,11 +81,12 @@ onBeforeRouteLeave(() => {
 
     return true;
   }
+  mapStore.toBeAddedPoint = null;
 });
 </script>
 
 <template>
-  <div class="container max-w-md mx-auto p4">
+  <div class="container max-w-lg mx-auto px-12 py-8 bg-base-200">
     <div class="my-4">
       <h1 class="text-lg">
         Add Location
@@ -86,18 +117,13 @@ onBeforeRouteLeave(() => {
         :error="errors.description"
         :disabled="loading"
       />
-      <AppFormField
-        name="lat"
-        label="Latitude"
-        :error="errors.lat"
-        :disabled="loading"
-      />
-      <AppFormField
-        name="long"
-        label="Longitude"
-        :error="errors.long"
-        :disabled="loading"
-      />
+      <p class="py-0 text-sm">
+        Drag the
+        <Icon name="tabler:map-pin-filled" class="text-primary" /> marker to your desired location.
+      </p>
+      <p class="text-xs text-gray-400 py-2">
+        Current location: {{ formatNumber(controlledValues.lat) }}, {{ formatNumber(controlledValues.long) }}
+      </p>
       <div class="flex justify-end gap-2">
         <button
           type="button"
