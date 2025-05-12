@@ -1,12 +1,19 @@
-# Mihai Popescu  
+---
+description: cv
+title: My cv
+---
+
+# Mihai Popescu
+
 **Senior Frontend Developer - Freelancer - Contractor**
 
 ---
 
 ## EXPERIENCE
 
-### Senior Frontend Engineer, Top Funnel Team - Tourlane  
-_Aug 2022 – Jan 2024_
+### Senior Frontend Engineer, Top Funnel Team - Tourlane
+
+*Aug 2022 – Jan 2024*
 
 The Top Funnel team faced challenges in increasing conversion rates for B2C channels due to poor website performance, a fragmented onboarding experience, inconsistent design language across frontend teams, and inefficiencies in the existing UI library. These issues impacted user engagement, team productivity, and the ability to deliver a cohesive product experience.
 
@@ -21,8 +28,9 @@ The Top Funnel team faced challenges in increasing conversion rates for B2C chan
 
 ---
 
-### Lead Frontend Engineer, Employee Dashboard MVP - Venture Backed Startup  
-_Feb 2021 – Aug 2022_
+### Lead Frontend Engineer, Employee Dashboard MVP - Venture Backed Startup
+
+*Feb 2021 – Aug 2022*
 
 The client, a venture-backed startup creating a marketplace for skilled labor, needed to rapidly scale several critical business processes (worker onboarding, monitoring, job posting creation and assignment) to keep up with rapid growth across several markets and regions.
 
@@ -32,8 +40,9 @@ The client, a venture-backed startup creating a marketplace for skilled labor, n
 
 ---
 
-### Rewrite of Customer Relationship Management Application - ING  
-_Jan 2019 – Feb 2021_
+### Rewrite of Customer Relationship Management Application - ING
+
+*Jan 2019 – Feb 2021*
 
 The client had a legacy, inaccessible, undocumented frontend CRM application tightly coupled to the backend, that was unmaintainable and unextendable.
 
@@ -46,8 +55,9 @@ The client had a legacy, inaccessible, undocumented frontend CRM application tig
 
 ---
 
-### Amazon Alexa Skill - Avira  
-_Apr 2018 – Jan 2019_
+### Amazon Alexa Skill - Avira
+
+*Apr 2018 – Jan 2019*
 
 Client was facing slowing growth and an aging demographic for its products and needed to extend its reach to a younger demographic.
 
@@ -58,8 +68,9 @@ Client was facing slowing growth and an aging demographic for its products and n
 
 ---
 
-### Customer Onboarding Application - Avira  
-_Jan 2017 – Jan 2019_
+### Customer Onboarding Application - Avira
+
+*Jan 2017 – Jan 2019*
 
 The client was faced with increased customer churn caused by a failing onboarding application that served as the first-time experience for new users.
 
@@ -70,8 +81,9 @@ The client was faced with increased customer churn caused by a failing onboardin
 
 ---
 
-### User Dashboard - Avira  
-_Jan 2017 – Jan 2019_
+### User Dashboard - Avira
+
+*Jan 2017 – Jan 2019*
 
 The client was facing increasing feature development time as well as decreasing application performance.
 
@@ -103,15 +115,14 @@ The client was facing increasing feature development time as well as decreasing 
 
 ### Volunteer
 
-- Frontend Developer, Code4Romania _(Apr 2016 – Oct 2017)_
-- Organiser, BucharestJS _(Apr 2016 – Apr 2018)_
+- Frontend Developer, Code4Romania *(Apr 2016 – Oct 2017)*
+- Organiser, BucharestJS *(Apr 2016 – Apr 2018)*
 
 ---
 
 ## EDUCATION
 
-**BSc Business Administration**  
-University of Bath, United Kingdom (2011–2015)
+**BSc Business Administration**:brUniversity of Bath, United Kingdom (2011–2015)
 
 ---
 
