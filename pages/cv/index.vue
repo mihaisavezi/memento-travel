@@ -1,14 +1,18 @@
 <script setup lang="ts">
-const route = useRoute();
-const { data: page } = await useAsyncData(`page-${route.path}`, () => {
-  return queryCollection("content").path(route.path).first();
+const { data: page } = await useAsyncData(`cv`, () => {
+  return queryCollection("content").first();
 }, { server: false });
+
+console.log("🚀 ~ const{data:page}=awaituseAsyncData ~ page:", page);
+const [pageSection] = page?.value?.sections || [];
+console.log("🚀 ~ pageSection:", pageSection);
 </script>
 
 <template>
   <div>
+    <pre> {{ pageSection }} </pre>
     <!-- <pre class="h-96 overflow-scroll">{{ JSON.stringify(page?.body?.toc, null, 2) }}</pre> -->
-    <div class="flex-1 flex bg-gray-950">
+    <div class="flex-1 flex bg-gray-950 justify-center">
       <div class="p-16 flex flex-col gap-4">
         <ContentRenderer
           v-if="page"

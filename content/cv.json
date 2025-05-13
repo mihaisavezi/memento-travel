@@ -1,0 +1,231 @@
+{
+    "sections": [
+        {
+            "title": "Profile",
+            "description": "Senior Frontend Developer and freelancer/contractor based in Bucharest, Romania, with 7+ years of experience building scalable, performant web applications and leading engineering teams.",
+            "features": [
+                "Specializes in React, NextJS, TypeScript, and modern web performance.",
+                "Proven track record in optimizing web performance, accelerating development cycles, and mentoring engineers.",
+                "Experience across startups, large enterprises, and open-source communities."
+            ],
+            "tags": [
+                "Frontend",
+                "Web Development",
+                "Leadership",
+                "Performance"
+            ]
+        },
+        {
+            "title": "Experience",
+            "description": "Professional experience in frontend engineering, product development, and team leadership.",
+            "features": [
+                {
+                    "title": "Senior Frontend Engineer, Top Funnel Team - Tourlane",
+                    "description": "Aug 2022 – Jan 2024",
+                    "features": [
+                        "Improved website performance by 40% through asset optimization, lazy loading, and JS bundle reduction.",
+                        "Increased onboarding completion rates by 25% by streamlining the onboarding flow.",
+                        "Launched a new onboarding experience with positive user feedback and A/B test results.",
+                        "Enhanced UI library workflow efficiency by 35% by improving documentation and adding reusable components.",
+                        "Improved feedback cycle time at least 2x by enabling stakeholders to trigger preview builds via Slack bot.",
+                        "Prototyped a new UI library solution for theming and unified design language."
+                    ],
+                    "tags": [
+                        "NextJS",
+                        "React",
+                        "GatsbyJS",
+                        "Contentful",
+                        "Typescript",
+                        "Web Performance",
+                        "Zustand"
+                    ]
+                },
+                {
+                    "title": "Lead Frontend Engineer, Employee Dashboard MVP - Venture Backed Startup",
+                    "description": "Feb 2021 – Aug 2022",
+                    "features": [
+                        "Improved operational efficiency by more than 2x by migrating business processes into a scalable, testable frontend app.",
+                        "Saved $50K+ annually by using rapid development for user flows and UI.",
+                        "Increased development speed by 60% by architecting the frontend app and onboarding processes."
+                    ],
+                    "tags": []
+                },
+                {
+                    "title": "Senior Frontend Engineer, CRM Rewrite - ING",
+                    "description": "Jan 2019 – Feb 2021",
+                    "features": [
+                        "Improved project scalability by more than 2x with a micro-frontend approach.",
+                        "Reduced initial shipping time from 1 year to 3 months via incremental migration.",
+                        "Improved developer productivity by 60% by implementing a mock API and isolated UI component environment.",
+                        "Increased component-based architecture adoption by 2x through workshops."
+                    ],
+                    "tags": [
+                        "Micro-frontends",
+                        "WebComponents",
+                        "LitElement",
+                        "LitHtml",
+                        "Redux",
+                        "Redux-Saga",
+                        "Webpack",
+                        "Azure DevOps",
+                        "Scrum",
+                        "Presentation",
+                        "Negotiation",
+                        "Teaching"
+                    ]
+                },
+                {
+                    "title": "Frontend Engineer, Amazon Alexa Skill - Avira",
+                    "description": "Apr 2018 – Jan 2019",
+                    "features": [
+                        "Improved performance by 34% by rewriting the onboarding app with a component-based architecture.",
+                        "Reduced application uninstalls by 27% by implementing A/B testing for marketing product cards."
+                    ],
+                    "tags": [
+                        "NodeJS",
+                        "Express",
+                        "Alexa SDK",
+                        "AWS Lambda"
+                    ]
+                },
+                {
+                    "title": "Frontend Engineer, Customer Onboarding Application - Avira",
+                    "description": "Jan 2017 – Jan 2019",
+                    "features": [
+                        "Improved performance by 34% by rewriting the onboarding app.",
+                        "Reduced uninstalls by 27% via A/B testing."
+                    ],
+                    "tags": [
+                        "React",
+                        "Redux",
+                        "A/B testing"
+                    ]
+                },
+                {
+                    "title": "Frontend Engineer, User Dashboard - Avira",
+                    "description": "Jan 2017 – Jan 2019",
+                    "features": [
+                        "Saved 8+ man hours/week by optimizing build scripts, adding linting, and debugging utilities.",
+                        "Improved security by eliminating 14 critical vulnerabilities (migrated AngularJS 1.2 to 1.6).",
+                        "Created migration strategy to Angular 2 and component-based architecture.",
+                        "Reduced onboarding time for new developers by at least 3 days by maintaining setup documentation."
+                    ],
+                    "tags": []
+                }
+            ],
+            "tags": [
+                "Professional Experience",
+                "Frontend",
+                "Leadership"
+            ]
+        },
+        {
+            "title": "Skills",
+            "description": "Technical proficiencies accumulated over 7+ years of hands-on development.",
+            "features": [
+                "JavaScript (7 years)",
+                "TypeScript (2 years)",
+                "Web Components (2 years)",
+                "React (3 years)",
+                "AngularJS (2 years)",
+                "Angular (1 year)",
+                "Progressive Web Applications (1 year)",
+                "Build Tooling (4 years)",
+                "Testing (3 years)",
+                "HTML (7 years)",
+                "CSS (7 years)",
+                "Git (7 years)"
+            ],
+            "tags": [
+                "JavaScript",
+                "TypeScript",
+                "React",
+                "AngularJS",
+                "Web Components",
+                "HTML",
+                "CSS",
+                "Git"
+            ]
+        },
+        {
+            "title": "Education",
+            "description": "Academic background and qualifications.",
+            "features": [
+                {
+                    "title": "BSc Business Administration",
+                    "description": "University of Bath, United Kingdom (2011–2015)"
+                }
+            ],
+            "tags": [
+                "Business Administration",
+                "University of Bath"
+            ]
+        },
+        {
+            "title": "Languages",
+            "description": "Spoken and written languages.",
+            "features": [
+                {
+                    "title": "Romanian",
+                    "description": "Native"
+                },
+                {
+                    "title": "English",
+                    "description": "Professional"
+                },
+                {
+                    "title": "German",
+                    "description": "Intermediate"
+                }
+            ],
+            "tags": [
+                "Romanian",
+                "English",
+                "German"
+            ]
+        },
+        {
+            "title": "Volunteer",
+            "description": "Community involvement and open-source contributions.",
+            "features": [
+                {
+                    "title": "Frontend Developer",
+                    "description": "Code4Romania (Apr 2016 – Oct 2017)"
+                },
+                {
+                    "title": "Organiser",
+                    "description": "BucharestJS (Apr 2016 – Apr 2018)"
+                }
+            ],
+            "tags": [
+                "Volunteer",
+                "Community",
+                "Open Source"
+            ]
+        },
+        {
+            "title": "Social",
+            "description": "Online presence and professional profiles.",
+            "features": [
+                {
+                    "title": "LinkedIn",
+                    "description": "https://linkedin.com/in/contactmihaip"
+                },
+                {
+                    "title": "GitHub",
+                    "description": "https://github.com/mihaisavezi"
+                },
+                {
+                    "title": "CodePen",
+                    "description": "https://codepen.io/mihaisavezi"
+                }
+            ],
+            "tags": [
+                "LinkedIn",
+                "GitHub",
+                "CodePen",
+                "Social"
+            ]
+        }
+    ]
+}
