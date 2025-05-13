@@ -3,6 +3,8 @@ import type { FetchError } from "ofetch";
 
 import { toTypedSchema } from "@vee-validate/zod";
 
+import type { NominatimResult } from "~/lib/types";
+
 import { DEFAULT_COORDS } from "~/lib/constants";
 import { InsertLocation } from "~/lib/db/schema";
 
@@ -25,6 +27,18 @@ const router = useRouter();
 const submitError = ref("");
 const loading = ref(false);
 const submitted = ref(false);
+
+function searchResultSelected(result: NominatimResult) {
+  setFieldValue("name", result.display_name);
+  mapStore.toBeAddedPoint = {
+    id: 1,
+    name: "Added Point",
+    description: "",
+    long: Number(result.lon),
+    lat: Number(result.lat),
+    centerMap: true,
+  };
+}
 
 const onSubmit = handleSubmit(async (values, actions) => {
   try {
@@ -56,7 +70,7 @@ effect(() => {
   }
 });
 
-onMounted(() => {
+onMounted(async () => {
   mapStore.toBeAddedPoint = {
     id: 1,
     name: "Added point",
@@ -85,7 +99,7 @@ onBeforeRouteLeave(() => {
       <h1 class="text-lg">
         Add Location
       </h1>
-      <p class="text-sm">
+      <p class="text-sm pt-6">
         A location is a place you have traveled or will travel to. It can be a city, country, state or point of
         interest. You can add specific times you visited this location after adding it.
       </p>
@@ -112,14 +126,26 @@ onBeforeRouteLeave(() => {
         :error="errors.description"
         :disabled="loading"
       />
-      <p class="py-0 text-sm">
-        Drag the
-        <Icon name="tabler:map-pin-filled" class="text-primary" /> marker to your desired location.
+      <p class="text-xs text-gray-400">
+        Current coordinates: {{ formatNumber(controlledValues.lat) }}, {{ formatNumber(controlledValues.long) }}
       </p>
-      <p class="text-xs text-gray-400 py-2">
-        Current location: {{ formatNumber(controlledValues.lat) }}, {{ formatNumber(controlledValues.long) }}
+      <p class="pt-4">
+        To set the coordinates:
       </p>
-      <div class="flex justify-end gap-2">
+      <ul class="list-disc ml-4 text-sm">
+        <li>
+          Drag the
+          <Icon name="tabler:map-pin-filled" class="text-primary dark:text-warning" /> marker on the map.
+        </li>
+        <li>
+          Double click the map.
+        </li>
+      </ul>
+      <div class="divider">
+        OR
+      </div>
+      <AppPlaceSearch @result-selected="searchResultSelected" />
+      <div class="flex justify-end gap-2 pt-8">
         <button
           type="button"
           :disabled="loading"
