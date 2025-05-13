@@ -1,7 +1,7 @@
 {
     "sections": [
         {
-            "title": "Profile",
+            "title": "Mihai Popescu",
             "description": "Senior Frontend Developer and freelancer/contractor based in Bucharest, Romania, with 7+ years of experience building scalable, performant web applications and leading engineering teams.",
             "features": [
                 "Specializes in React, NextJS, TypeScript, and modern web performance.",
@@ -13,6 +13,21 @@
                 "Web Development",
                 "Leadership",
                 "Performance"
+            ]
+        },
+        {
+            "title": "Contact",
+            "description": "Contact details for professional inquiries.",
+            "features": [
+                "Email: contactmihaip@gmail.com",
+                "Phone: +40 741 181 722",
+                "Location: Bucharest, Romania"
+            ],
+            "tags": [
+                "Contact",
+                "Email",
+                "Phone",
+                "Location"
             ]
         },
         {
@@ -48,7 +63,11 @@
                         "Saved $50K+ annually by using rapid development for user flows and UI.",
                         "Increased development speed by 60% by architecting the frontend app and onboarding processes."
                     ],
-                    "tags": []
+                    "tags": [
+                        "MVP Development",
+                        "Startups",
+                        "Architecture"
+                    ]
                 },
                 {
                     "title": "Senior Frontend Engineer, CRM Rewrite - ING",
@@ -110,7 +129,11 @@
                         "Created migration strategy to Angular 2 and component-based architecture.",
                         "Reduced onboarding time for new developers by at least 3 days by maintaining setup documentation."
                     ],
-                    "tags": []
+                    "tags": [
+                        "AngularJS",
+                        "Migration",
+                        "Security"
+                    ]
                 }
             ],
             "tags": [
@@ -120,13 +143,13 @@
             ]
         },
         {
-            "title": "Skills",
+            "title": "Technical Skills",
             "description": "Technical proficiencies accumulated over 7+ years of hands-on development.",
             "features": [
                 "JavaScript (7 years)",
                 "TypeScript (2 years)",
-                "Web Components (2 years)",
                 "React (3 years)",
+                "Web Components (2 years)",
                 "AngularJS (2 years)",
                 "Angular (1 year)",
                 "Progressive Web Applications (1 year)",
@@ -151,10 +174,7 @@
             "title": "Education",
             "description": "Academic background and qualifications.",
             "features": [
-                {
-                    "title": "BSc Business Administration",
-                    "description": "University of Bath, United Kingdom (2011–2015)"
-                }
+                "BSc Business Administration, University of Bath, United Kingdom (2011–2015)"
             ],
             "tags": [
                 "Business Administration",
@@ -162,40 +182,11 @@
             ]
         },
         {
-            "title": "Languages",
-            "description": "Spoken and written languages.",
-            "features": [
-                {
-                    "title": "Romanian",
-                    "description": "Native"
-                },
-                {
-                    "title": "English",
-                    "description": "Professional"
-                },
-                {
-                    "title": "German",
-                    "description": "Intermediate"
-                }
-            ],
-            "tags": [
-                "Romanian",
-                "English",
-                "German"
-            ]
-        },
-        {
-            "title": "Volunteer",
+            "title": "Volunteer Work",
             "description": "Community involvement and open-source contributions.",
             "features": [
-                {
-                    "title": "Frontend Developer",
-                    "description": "Code4Romania (Apr 2016 – Oct 2017)"
-                },
-                {
-                    "title": "Organiser",
-                    "description": "BucharestJS (Apr 2016 – Apr 2018)"
-                }
+                "Frontend Developer, Code4Romania (Apr 2016 – Oct 2017)",
+                "Organiser, BucharestJS (Apr 2016 – Apr 2018)"
             ],
             "tags": [
                 "Volunteer",
@@ -204,27 +195,29 @@
             ]
         },
         {
-            "title": "Social",
-            "description": "Online presence and professional profiles.",
+            "title": "Languages",
+            "description": "Spoken and written languages.",
             "features": [
-                {
-                    "title": "LinkedIn",
-                    "description": "https://linkedin.com/in/contactmihaip"
-                },
-                {
-                    "title": "GitHub",
-                    "description": "https://github.com/mihaisavezi"
-                },
-                {
-                    "title": "CodePen",
-                    "description": "https://codepen.io/mihaisavezi"
-                }
+                "Romanian (Native)",
+                "English (Professional)",
+                "German (Intermediate)"
             ],
             "tags": [
-                "LinkedIn",
-                "GitHub",
-                "CodePen",
-                "Social"
+                "Multilingual",
+                "Communication"
+            ]
+        },
+        {
+            "title": "Social Profiles",
+            "description": "Online presence and professional profiles.",
+            "features": [
+                "LinkedIn: https://linkedin.com/in/contactmihaip",
+                "GitHub: https://github.com/mihaisavezi",
+                "CodePen: https://codepen.io/mihaisavezi"
+            ],
+            "tags": [
+                "Professional Networking",
+                "Code Examples"
             ]
         }
     ]

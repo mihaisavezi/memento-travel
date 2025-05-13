@@ -16,10 +16,14 @@ const resumeSchema = z.object({
 
 export default defineContentConfig({
   collections: {
-    content: defineCollection({
+    cvJSON: defineCollection({
       type: "data",
       source: "**/*.json",
       schema: resumeSchema,
+    }),
+    cvMD: defineCollection({
+      type: "page",
+      source: "**/*.md",
     }),
   },
 });
