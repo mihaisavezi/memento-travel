@@ -13,7 +13,7 @@ export type SidebarItem = {
 export const useMapStore = defineStore("useMapStore", () => {
   const mapPoints = ref<MapPoint[]>([]);
   const selectedPoint = ref<MapPoint | null>(null);
-  const toBeAddedPoint = ref<MapPoint | null>(null);
+  const toBeAddedPoint = ref<MapPoint & { centerMap?: boolean; zoom?: number } | null>(null);
   const shouldFlyTo = ref(true);
 
   async function init() {
@@ -62,7 +62,7 @@ export const useMapStore = defineStore("useMapStore", () => {
     });
 
     watch(toBeAddedPoint, (newValue, oldValue) => {
-      if (newValue && !oldValue) {
+      if ((newValue && !oldValue) || newValue?.centerMap) {
         map?.map?.flyTo({
           center: [newValue.long, newValue.lat],
           zoom: 5,
