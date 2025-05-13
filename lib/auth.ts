@@ -20,19 +20,19 @@ export const auth = betterAuth({
         // send email to user
 
         try {
-          await resend.emails.send({
-            from: "Mihai <onboarding@memento-travel.dev>",
+          const data = await resend.emails.send({
+            from: "Onboardin@MementoTravel <onboarding@resend.dev>",
             to: [email],
-            subject: "Welcome",
-            html: `<strong>It works! 
-            Click on this link: <a href="${url}"> MementoTravel </a>
-            <ul>  There is a lot you can do: 
+            subject: "Welcome to your first stop in your journey",
+            html: `Click on this link to sign with your magic link: <a href="${url}"> MementoTravel </a>
+            <ul>  There is a lot you can do here: 
             <li>Add a location, by searching on the map, or just dragging the pin, or just search it via API</li>
             <li>Browse locations</li>
             <li>Toggle Light Mode/Dark Mode</li>
             <li>More features soon to come...</li>
             </ul>`,
           });
+          console.log("🚀 ~ sendMagicLink: ~ data:", data);
         }
         catch (error) {
           console.log(error);

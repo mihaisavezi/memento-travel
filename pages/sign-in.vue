@@ -39,7 +39,7 @@ const onSubmit = handleSubmit(async (values, actions) => {
   <ColorScheme>
     <div v-if="submitted" class="toast">
       <div class="alert alert-success">
-        <span>Check your email address.</span>
+        <span>Check your email address for a login link</span>
       </div>
     </div>
     <div
