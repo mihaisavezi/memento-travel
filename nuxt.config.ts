@@ -4,6 +4,14 @@ import "./lib/env";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  content: {
+    preview: {
+      api: "https://api.nuxt.studio",
+    },
+    watch: {
+      enabled: true,
+    },
+  },
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   modules: [
@@ -34,13 +42,5 @@ export default defineNuxtConfig({
     devtools: true,
     glsl: true,
   },
-  debug: true,
-  content: {
-    preview: {
-      api: "https://api.nuxt.studio",
-    },
-    watch: {
-      enabled: true,
-    },
-  },
+  // debug: true,
 });

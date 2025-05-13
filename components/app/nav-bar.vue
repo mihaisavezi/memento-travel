@@ -1,20 +1,13 @@
 <script lang="ts" setup>
 const authStore = useAuthStore();
-const colorMode = useColorMode();
-
-const isDark = computed(() => {
-  return colorMode.value === "dark";
-});
+const { backgroundColorClasses } = useUIColors();
 </script>
 
 <template>
   <ColorScheme>
     <div
-      class="navbar sticky top-0"
-      :class="{
-        'bg-indigo-950/60': isDark,
-        'bg-sky-200/50': !isDark,
-      }"
+      class="navbar sticky top-0 z-5"
+      :class="backgroundColorClasses"
     >
       <div class="navbar-start">
         <NuxtLink to="/" class="btn btn-ghost text-xl tracking-wide font-light text-base-content font-serif">
