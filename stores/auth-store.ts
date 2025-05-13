@@ -1,6 +1,11 @@
+import { magicLinkClient } from "better-auth/client/plugins";
 import { createAuthClient } from "better-auth/vue";
 
-const authClient = createAuthClient();
+const authClient = createAuthClient({
+  plugins: [
+    magicLinkClient(),
+  ],
+});
 
 export const useAuthStore = defineStore("useAuthStore", () => {
   const session = ref<Awaited<ReturnType<authClient.useSession>> | null>(null);
@@ -26,6 +31,19 @@ export const useAuthStore = defineStore("useAuthStore", () => {
     });
   }
 
+  async function signInWithMagicLink({ email }) {
+    const { csrf } = useCsrf();
+    const headers = new Headers();
+    headers.append("csrf-token", csrf);
+    await authClient.signIn.magicLink({
+      email,
+      callbackURL: "/dashboard", // redirect after successful login (optional)
+      fetchOptions: {
+        headers,
+      },
+    });
+  };
+
   async function signOut() {
     const { csrf } = useCsrf();
     const headers = new Headers();
@@ -43,6 +61,7 @@ export const useAuthStore = defineStore("useAuthStore", () => {
     loading,
     signIn,
     signOut,
+    signInWithMagicLink,
     user,
   };
 });

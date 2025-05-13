@@ -3,7 +3,8 @@ const props = defineProps<{
   label: string;
   name: string;
   error?: string;
-  type?: "text" | "textarea";
+  type?: "text" | "textarea" | "email";
+  as?: string;
   disabled?: boolean;
 }>();
 </script>
@@ -14,14 +15,14 @@ const props = defineProps<{
       {{ props.label }}
     </legend>
     <Field
-      :as="type || 'input'"
+      :as="as || 'input'"
       :name="props.name"
       :type="type || 'text'"
       :disabled="disabled"
       class="w-full"
       :class="{
         'input-error': props.error,
-        'input': !type || type === 'text',
+        'input': !type || type === 'text' || type === 'email',
         'textarea': type === 'textarea',
       }"
     />

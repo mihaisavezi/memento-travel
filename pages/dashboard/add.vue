@@ -108,6 +108,7 @@ onBeforeRouteLeave(() => {
         name="description"
         label="Description"
         type="textarea"
+        as="textarea"
         :error="errors.description"
         :disabled="loading"
       />

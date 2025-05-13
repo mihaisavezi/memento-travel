@@ -10,8 +10,13 @@ export default defineEventHandler(async (event) => {
     : undefined;
 
   if (event.path.startsWith("/dashboard")) {
-    if (!session) {
+    if (!session?.user) {
       await sendRedirect(event, "/", 302);
     }
+  }
+
+  if (event.path.startsWith("/sign-in")) {
+    if (session?.user)
+      await sendRedirect(event, "/dashboard", 302);
   }
 });
