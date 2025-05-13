@@ -9,9 +9,9 @@ title: My cv
 
 ---
 
-## EXPERIENCE
+## [EXPERIENCE]{.pt-4.pb-2}
 
-### Senior Frontend Engineer, Top Funnel Team - Tourlane
+### `Senior Frontend Engineer, Top Funnel Team - Tourlane`
 
 *Aug 2022 – Jan 2024*
 
@@ -122,7 +122,7 @@ The client was facing increasing feature development time as well as decreasing 
 
 ## EDUCATION
 
-**BSc Business Administration**:brUniversity of Bath, United Kingdom (2011–2015)
+**BSc Business Administration**:br-university of Bath, United Kingdom (2011–2015)
 
 ---
 
