@@ -1,19 +1,11 @@
 <script lang="ts" setup>
-const route = useRoute();
-const mapStore = useMapStore();
-const { slug } = route.params;
-const { data: location, status } = await useFetch(`/api/locations/${slug}`, {
-  lazy: true,
-});
+const locationStore = useLocationStore();
+const { currentLocation: location, currentLocationStatus: status } = storeToRefs(locationStore);
+console.log("🚀 ~ location:", location);
 
-effect(() => {
-  if (location.value) {
-    mapStore.mapPoints = [location.value];
-  }
+onMounted(() => {
+  locationStore.currentLocationRefresh();
 });
-
-// zoom in to location
-// remove other markers associated with this.
 </script>
 
 <template>
