@@ -95,13 +95,24 @@ onMounted(() => {
             />
           </div>
         </template>
-        <MglPopup>
-          <h3 class="text-xl">
-            {{ point.name }}
-          </h3>
-          <p v-if="point.description">
-            {{ point.description }}
-          </p>
+        <MglPopup :close-button="false">
+          <div class="p-4">
+            <h3 class="text-lg">
+              {{ point.name }}
+            </h3>
+            <p v-if="point.description" class="text-xs">
+              {{ point.description }}
+            </p>
+            <div class="flex justify-end mt-4">
+              <NuxtLink
+                v-if="point.to"
+                :to="point.to"
+                class="btn btn-sm btn-outline"
+              >
+                {{ point.toLabel }}
+              </NuxtLink>
+            </div>
+          </div>
         </MglPopup>
       </MglMarker>
     </MglMap>

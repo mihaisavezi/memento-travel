@@ -75,6 +75,14 @@ function setLocation(result: NominatimResult) {
         </button>
       </div>
     </Form>
+    <div class="text-xs italic flex justify-center gap-1 text-gray-400">
+      <span>Search results provided by:</span><a
+        target="_blank"
+        rel="noopener nofollow"
+        class="link"
+        href="https://nominatim.openstreetmap.org/ui/search.html"
+      >nominatim</a>
+    </div>
     <div
       v-if="!loading && errorMessage"
       role="alert"
