@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { VERTICALLY_STACKED_PAGES } from "~/lib/constants";
+
 const isSidebarOpen = ref(true);
 const route = useRoute();
 const sidebarStore = useSidebarStore();
@@ -68,11 +70,11 @@ function toggleSidebar() {
             :show-label="isSidebarOpen"
             :label="item.label"
             :icon="item.icon"
-            :href="item.href"
+            :to="item.to"
             :class="{
-              'text-secondary': item.location === mapStore.selectedPoint,
+              'text-secondary': isPointSelected(item.mapPoint, mapStore.selectedPoint),
             }"
-            @mouseenter="mapStore.selectedPoint = item.location ?? null"
+            @mouseenter="mapStore.selectedPoint = item.mapPoint ?? null"
             @mouseleave="mapStore.selectedPoint = null"
           />
         </div>
@@ -86,7 +88,12 @@ function toggleSidebar() {
       </div>
     </div>
     <div class="flex-1 overflow-auto">
-      <div class="flex size-full" :class="route.path === '/dashboard' ? 'flex-col' : undefined">
+      <div
+        class="flex size-full"
+        :class="{
+          'flex-col': VERTICALLY_STACKED_PAGES.has(route.name?.toString() || ''),
+        }"
+      >
         <NuxtPage />
         <AppMap class="flex-1" />
       </div>

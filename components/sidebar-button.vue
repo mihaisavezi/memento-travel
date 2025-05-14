@@ -1,8 +1,11 @@
 <script lang="ts" setup>
+import type { RouteLocationRaw } from "vue-router";
+
 const props = defineProps<{
   label: string;
   icon: string;
-  href: string;
+  href?: string;
+  to?: RouteLocationRaw;
   showLabel: boolean;
 }>();
 
@@ -16,7 +19,7 @@ const route = useRoute();
     :class="{ tooltip: !showLabel }"
   >
     <NuxtLink
-      :to="props.href"
+      :to="props.href || props.to"
       :class="{ 'bg-blend-color bg-base-300': route.path === props.href }"
       class="flex gap-2 p-2 hover:bg-base-200 hover:cursor-pointer flex-nowrap"
     >

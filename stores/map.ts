@@ -37,28 +37,8 @@ export const useMapStore = defineStore("useMapStore", () => {
 
       map.map?.fitBounds(bounds, {
         padding: 50,
+        maxZoom: 10,
       });
-    });
-
-    effect(() => {
-      if (toBeAddedPoint.value)
-        return;
-      if (selectedPoint.value) {
-        if (shouldFlyTo.value) {
-          map?.map?.flyTo({
-            center: [selectedPoint.value.long, selectedPoint.value.lat],
-            zoom: 3,
-            speed: 0.8,
-          });
-        }
-        shouldFlyTo.value = true;
-      }
-
-      else if (bounds) {
-        map?.map?.fitBounds(bounds, {
-          padding: 50,
-        });
-      }
     });
 
     watch(toBeAddedPoint, (newValue, oldValue) => {
