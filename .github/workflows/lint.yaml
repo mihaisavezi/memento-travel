@@ -21,6 +21,7 @@ jobs:
       AUTH_GITHUB_CLIENT_SECRET: ${{ secrets.AUTH_GITHUB_CLIENT_SECRET }}
       AUTH_GOOGLE_CLIENT_SECRET: ${{ secrets.AUTH_GOOGLE_CLIENT_SECRET }}
       AUTH_GOOGLE_CLIENT_ID: ${{ secrets.AUTH_GOOGLE_CLIENT_ID }}
+      MAILER_API_KEY: ${{ secrets.MAILER_API_KEY }}
 
     steps:
       - uses: actions/checkout@v4
