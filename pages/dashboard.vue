@@ -1,71 +1,78 @@
 <script setup lang="ts">
-import { VERTICALLY_STACKED_PAGES } from "~/lib/constants";
+import { CURRENT_LOCATION_PAGES, EDIT_PAGES, LOCATION_PAGES } from "~/lib/constants";
 
 const isSidebarOpen = ref(true);
+const shouldShow = ref(true);
 const route = useRoute();
 const sidebarStore = useSidebarStore();
+console.log("🚀 ~ sidebarStore:", sidebarStore.sidebarItems);
 const locationsStore = useLocationStore();
 const mapStore = useMapStore();
 
-const { currentLocation } = storeToRefs(locationsStore);
+const { currentLocation, currentLocationStatus } = storeToRefs(locationsStore);
+
+if (LOCATION_PAGES.has(route.name?.toString() || "")) {
+  await locationsStore.locationsRefresh();
+}
+
+if (CURRENT_LOCATION_PAGES.has(route.name?.toString() || "")) {
+  await locationsStore.currentLocationRefresh();
+}
 
 onMounted(() => {
   isSidebarOpen.value = localStorage.getItem("isSidebarOpen") === "true";
-  if (route.path !== "/dashboard") {
-    locationsStore.locationsRefresh();
-  }
 });
 
 effect(() => {
-  if (route.name === "dashboard") {
+  if (LOCATION_PAGES.has(route.name?.toString() || "")) {
     sidebarStore.sidebarTopItems = [{
       id: "link-dashboard",
       label: "Locations",
-      icon: "tabler:map",
       href: "/dashboard",
+      icon: "tabler:map",
     }, {
       id: "link-location-add",
       label: "Add Location",
-      icon: "tabler:circle-plus-filled",
       href: "/dashboard/add",
+      icon: "tabler:circle-plus-filled",
     }];
   }
-  else if (route.name === "dashboard-location-slug") {
+  else if (CURRENT_LOCATION_PAGES.has(route.name?.toString() || "")) {
     sidebarStore.sidebarTopItems = [{
       id: "link-dashboard",
-      label: "Back To Locations",
-      icon: "tabler:arrow-left",
+      label: "Back to Locations",
       href: "/dashboard",
+      icon: "tabler:arrow-left",
     }, {
       id: "link-dashboard",
-      label: currentLocation.value ? currentLocation.value.name : "View Logs",
-      icon: "tabler:map",
+      label: currentLocationStatus.value === "pending" || !currentLocation.value ? "Loading..." : currentLocation.value.name,
       to: {
         name: "dashboard-location-slug",
         params: {
-          slug: currentLocation.value?.slug,
+          slug: route.params.slug,
         },
       },
+      icon: "tabler:map",
     }, {
-      id: "link-dashboard",
+      id: "link-location-edit",
       label: "Edit Location",
-      icon: "tabler:map-pin-cog",
       to: {
         name: "dashboard-location-slug-edit",
         params: {
-          slug: currentLocation.value?.slug,
+          slug: route.params.slug,
         },
       },
+      icon: "tabler:map-pin-cog",
     }, {
       id: "link-location-add",
       label: "Add Location Log",
-      icon: "tabler:circle-plus-filled",
       to: {
         name: "dashboard-location-slug-add",
         params: {
-          slug: currentLocation.value?.slug,
+          slug: route.params.slug,
         },
       },
+      icon: "tabler:circle-plus-filled",
     }];
   }
 });
@@ -74,6 +81,16 @@ function toggleSidebar() {
   isSidebarOpen.value = !isSidebarOpen.value;
   localStorage.setItem("isSidebarOpen", isSidebarOpen.value.toString());
 }
+
+onBeforeRouteUpdate((to) => {
+  if (to.name === "dashboard-location-slug") {
+    console.log("🚀 ~ onBeforeRouteUpdate ~ to:", to);
+    shouldShow.value = false;
+
+    return;
+  }
+  shouldShow.value = true;
+});
 </script>
 
 <template>
@@ -105,14 +122,14 @@ function toggleSidebar() {
           :show-label="isSidebarOpen"
           :label="item.label"
           :icon="item.icon"
-          :to="item.to"
           :href="item.href"
+          :to="item.to"
         />
-        <div v-if="sidebarStore.loading || sidebarStore.sidebarItems.length" class="divider" />
+        <div v-if="shouldShow && (sidebarStore.loading || sidebarStore.sidebarItems.length)" class="divider" />
         <div v-if="sidebarStore.loading" class="px-4">
           <div class="skeleton h-4 w-full" />
         </div>
-        <div v-if="!sidebarStore.loading && sidebarStore.sidebarItems.length" class="flex flex-col">
+        <div v-if="shouldShow && (!sidebarStore.loading && sidebarStore.sidebarItems.length)" class="flex flex-col">
           <SidebarButton
             v-for="item in sidebarStore.sidebarItems"
             :key="item.id"
@@ -140,10 +157,15 @@ function toggleSidebar() {
       <div
         class="flex size-full"
         :class="{
-          'flex-col': VERTICALLY_STACKED_PAGES.has(route.name?.toString() || ''),
+          'flex-col': !EDIT_PAGES.has(route.name?.toString() || ''),
         }"
       >
-        <NuxtPage />
+        <NuxtPage
+          :class="{
+            'shrink-0': EDIT_PAGES.has(route.name?.toString() || ''),
+            'w-96': EDIT_PAGES.has(route.name?.toString() || ''),
+          }"
+        />
         <AppMap class="flex-1" />
       </div>
     </div>

@@ -12,7 +12,7 @@ onMounted(() => {
 <template>
   <div class="p-4 flex flex-col gap-4 min-h-64">
     <h2 class="text-2xl">
-      Locations
+      Locations tests
     </h2>
     <div v-if="status === 'pending'">
       <span class="loading loading-spinner loading-xl" />
