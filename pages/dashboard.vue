@@ -84,7 +84,6 @@ function toggleSidebar() {
 
 onBeforeRouteUpdate((to) => {
   if (to.name === "dashboard-location-slug") {
-    console.log("🚀 ~ onBeforeRouteUpdate ~ to:", to);
     shouldShow.value = false;
 
     return;
